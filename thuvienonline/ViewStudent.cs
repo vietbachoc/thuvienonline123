@@ -59,11 +59,11 @@ namespace thuvienonline
         {
             
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            cmd.CommandText = "select * From NewStudent";
+            cmd.CommandText = "select * From Students";
             SqlDataAdapter DA = new SqlDataAdapter(cmd);
             DataSet Ds = new DataSet();
             DA.Fill(Ds);
@@ -74,11 +74,11 @@ namespace thuvienonline
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            cmd.CommandText = "select * From NewStudent where enroll LIKE '"+txtSEnrollment.Text+"%'";
+            cmd.CommandText = "select * From Students where Student_Enrollment LIKE '" + txtSEnrollment.Text+"%'";
             SqlDataAdapter DA = new SqlDataAdapter(cmd);
             DataSet Ds = new DataSet();
             DA.Fill(Ds);
@@ -95,11 +95,11 @@ namespace thuvienonline
                 bid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            cmd.CommandText = "select * From NewStudent where enroll LIKE '" + txtSEnrollment.Text + "%'";
+            cmd.CommandText = "select * From Students where Student_Enrollment LIKE '" + txtSEnrollment.Text + "%'";
             SqlDataAdapter DA = new SqlDataAdapter(cmd);
             DataSet Ds = new DataSet();
             DA.Fill(Ds);
@@ -127,11 +127,11 @@ namespace thuvienonline
             if (MessageBox.Show("Data will be Update. ConFirm ?", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
-                cmd.CommandText = "Update NewStudent set name = '" + sname + "',enroll = '" + enroll + "',depart = '" + dep + "',sem ='" + sem + "',contact = '" + contact + "',email ='" + semail + "' where id =" + rowid + "";
+                cmd.CommandText = "Update Students set Student_Name = '" + sname + "',Student_Enrollment = '" + enroll + "',Student_Department = '" + dep + "',Student_Semester ='" + sem + "',Student_Contact = '" + contact + "',Student_Email ='" + semail + "' where Student_ID =" + rowid + "";
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet Ds = new DataSet();
                 DA.Fill(Ds);
@@ -150,11 +150,11 @@ namespace thuvienonline
             if (MessageBox.Show("Data will be Delete. ConFirm ?", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
-                cmd.CommandText = "delete from Newstudent where id = "+rowid+ "";
+                cmd.CommandText = "delete from Students where Student_ID = " + rowid+ "";
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet Ds = new DataSet();
                 DA.Fill(Ds);

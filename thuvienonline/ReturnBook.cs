@@ -28,10 +28,10 @@ namespace thuvienonline
         private void btnSearchStudent_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database =Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = cmd.CommandText = "select * from IssueBook where S_Enroll='"+txtEnterEnroll.Text+"' and BookReturn_date IS NULL";
+            cmd.CommandText = cmd.CommandText = "select * from IssuedBooks where Student_Enrollment='" + txtEnterEnroll.Text+ "' and Book_Return_Date  IS NULL";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -70,11 +70,11 @@ namespace thuvienonline
         private void btnReturn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database =Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             con.Open();
-            cmd.CommandText = "update IssueBook set BookReturn_date ='" + dateTimePicker1.Text + "'where S_Enroll='"+txtEnterEnroll.Text+"' and id= '"+rowid+"'";
+            cmd.CommandText = "update IssuedBooks set Book_Return_Date  ='" + dateTimePicker1.Text + "'where Student_Enrollment='" + txtEnterEnroll.Text+"' and id= '"+rowid+"'";
             cmd.ExecuteNonQuery();
             con.Close();
 

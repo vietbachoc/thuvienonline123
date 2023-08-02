@@ -30,10 +30,10 @@ namespace thuvienonline
             {
                 panel3.Visible = false;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "Select * from NewBook where bName LIKE '" + txtBookSearch.Text +"%'" ;
+                cmd.CommandText = "Select * from Books where Book_Name LIKE '" + txtBookSearch.Text +"%'" ;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -45,10 +45,10 @@ namespace thuvienonline
             {
                 panel3.Visible = false;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "Select * from NewBook";
+                cmd.CommandText = "Select * from Books";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -62,10 +62,10 @@ namespace thuvienonline
         {
             panel3.Visible = false;
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "Select * from NewBook";
+            cmd.CommandText = "Select * from Books";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -88,10 +88,10 @@ namespace thuvienonline
             }
             panel3.Visible = true;
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "Select * from NewBook where bid= "+ bid +"";
+            cmd.CommandText = "Select * from Books where Book_ID= " + bid +"";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -123,10 +123,10 @@ namespace thuvienonline
 
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "update NewBook set bName = '" + bname + "', bAuthor = '" + bauthor + "',bpubl = '" + publication + "',bPDate= '" + pdate + "',bPrice = " + price + ",bQuan = " + quan + " where bid = " + rowid + "";
+                cmd.CommandText = "update Books set Book_Name= '" + bname + "', Book_Author = '" + bauthor + "',Book_Publisher = '" + publication + "',Book_Publish_Date= '" + pdate + "', Book_Price = " + price + ",Book_Quantity = " + quan + " where Book_ID = " + rowid + "";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -146,10 +146,10 @@ namespace thuvienonline
 
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "delete from NewBook where bid ="+rowid+"";
+                cmd.CommandText = "delete from Books where Book_ID =" + rowid+"";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

@@ -21,17 +21,17 @@ namespace thuvienonline
         private void BooksDetail_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            cmd.CommandText = "select * from IssueBook where BookReturn_date is null";
+            cmd.CommandText = "select * from IssuedBooks where Book_Return_Date is null";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource= ds.Tables[0];
 
-            cmd.CommandText = "select * from IssueBook where BookReturn_date is not null";
+            cmd.CommandText = "select * from IssuedBooks where Book_Return_Date is not null";
             SqlDataAdapter Da = new SqlDataAdapter(cmd);
             DataSet Ds = new DataSet();
             Da.Fill(Ds);

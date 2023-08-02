@@ -49,12 +49,12 @@ namespace thuvienonline
 
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database =Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
             con.Open();
-            cmd.CommandText = "insert into NewStudent (name,enroll,depart,sem,contact,email) values ('" + name + "','" + enroll + "',+'" + depart + "','" + Sem+"',"+Contact+",'"+email+"')" ;
+            cmd.CommandText = "insert into Students (Student_Name,Student_Enrollment, Student_Department,Student_Semester,Student_Contact,Student_Email) values ('" + name + "','" + enroll + "',+'" + depart + "','" + Sem+"',"+Contact+",'"+email+"')" ;
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Data saved!", "SuccessFUll", MessageBoxButtons.OK, MessageBoxIcon.Information);

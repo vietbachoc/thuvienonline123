@@ -26,12 +26,12 @@ namespace thuvienonline
         private void IssueBook_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+            con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database =Library_management_system;integrated security=true";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
             con.Open();
-            cmd = new SqlCommand("select bName from NewBook", con);
+            cmd = new SqlCommand("select Book_Name from Books", con);
             SqlDataReader Sdr =cmd.ExecuteReader();
 
             while (Sdr.Read())
@@ -58,17 +58,17 @@ namespace thuvienonline
             {
                 String eid = txtEnrollment.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system;integrated security=true";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
-                cmd.CommandText = "select * from NewStudent where enroll ='" + eid +"' ";
+                cmd.CommandText = "select * from Students where enroll ='" + eid +"' ";
                 SqlDataAdapter Da =new SqlDataAdapter(cmd);
                 DataSet Ds = new DataSet();
                 Da.Fill(Ds);
 
 
-                cmd.CommandText = "select count(S_Enroll) from IssueBook where S_enroll  ='" + eid + "' and BookReturn_date is null";
+                cmd.CommandText = "select count(Student_Enrollment) from IssuedBooks where Student_Enrollment  ='" + eid + "' and Book_Return_Date is null";
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 Da.Fill(DS);
@@ -116,12 +116,12 @@ namespace thuvienonline
 
                     String eid = txtEnrollment.Text;
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary;integrated security=true";
+                    con.ConnectionString = "data source = LAPTOP-OVGA86OH\\SQLEXPRESS; database =Library_management_system;integrated security=true";
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
 
                     con.Open();
-                    cmd.CommandText = cmd.CommandText = "insert into IssueBook (S_Enroll,S_Name,S_Dep,S_Sem,S_Contact,S_Email,BookName,BookIssue_date) values ('" + enroll + "','" + sname + "','" + sdep + "','" + ssem + "'," + scontact + ",'" + email + "','" + Bookname + "','" + BookIssuedate + "')";
+                    cmd.CommandText = cmd.CommandText = "insert into IssuedBooks (Student_Enrollment,Student_Name,Student_Department,Student_Semester,Student_Contact,Student_Email,Book_Name,Book_Issue_Date) values ('" + enroll + "','" + sname + "','" + sdep + "','" + ssem + "'," + scontact + ",'" + email + "','" + Bookname + "','" + BookIssuedate + "')";
                     cmd.ExecuteNonQuery();
                     con.Close();
 
@@ -153,6 +153,11 @@ namespace thuvienonline
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             txtEnrollment.Clear();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

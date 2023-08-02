@@ -33,12 +33,12 @@ namespace thuvienonline
             Int64 quan = Int64.Parse(txtbquan.Text);
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source =LAPTOP-OVGA86OH\\SQLEXPRESS; database = newlibrary; integrated security=True";
+            con.ConnectionString = "data source =LAPTOP-OVGA86OH\\SQLEXPRESS; database = Library_management_system; integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection= con;
 
             con.Open();
-            cmd.CommandText = "insert into NewBook (bName,bAuthor,bpubl,bPdate,bPrice,bQuan) values ('" + bname + "','" + bauthor + "','" + publication + "','" + pdate + "'," + price + "," + quan + ")";
+            cmd.CommandText = "insert into Books (Book_Name,Book_Author,Book_Publisher,Book_Publish_Date,Book_Price,Book_Quantity) values ('" + bname + "','" + bauthor + "','" + publication + "','" + pdate + "'," + price + "," + quan + ")";
             cmd.ExecuteNonQuery();  
             con.Close();
             
